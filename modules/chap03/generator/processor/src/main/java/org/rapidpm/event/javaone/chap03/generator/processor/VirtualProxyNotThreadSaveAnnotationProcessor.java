@@ -14,7 +14,7 @@ import javax.lang.model.element.TypeElement;
  * Created by svenruppert on 21.10.15.
  */
 @AutoService(Processor.class)
-public class VirtualProxyNotThreadSaveAnnotationProcessor extends BasicDelegatorAnnotationProcessor<VirtualProxyNotThreadSave> {
+public class VirtualProxyNotThreadSaveAnnotationProcessor extends BasicAnnotationProcessor<VirtualProxyNotThreadSave> {
 
   @Override
   public Class<VirtualProxyNotThreadSave> responsibleFor() {
@@ -44,8 +44,8 @@ public class VirtualProxyNotThreadSaveAnnotationProcessor extends BasicDelegator
 
     specBuilderForTargetClass.addAnnotation(IsVirtualProxy.class);
 
-
-
+    final FieldSpec delegatorFieldSpec = defineDelegatorField(typeElement);
+    specBuilderForTargetClass.addField(delegatorFieldSpec);
 
 
   }

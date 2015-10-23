@@ -2,6 +2,7 @@ package org.rapidpm.event.javaone.chap03.generator.processor;
 
 import com.google.auto.service.AutoService;
 import com.squareup.javapoet.CodeBlock;
+import com.squareup.javapoet.FieldSpec;
 import com.squareup.javapoet.TypeName;
 import com.squareup.javapoet.TypeSpec;
 import org.rapidpm.event.javaone.chap03.generator.annotations.Delegator;
@@ -17,7 +18,7 @@ import javax.lang.model.element.TypeElement;
  */
 
 @AutoService(Processor.class)
-public class DelegatorAnnotationProcessor extends BasicDelegatorAnnotationProcessor<Delegator> {
+public class DelegatorAnnotationProcessor extends BasicAnnotationProcessor<Delegator> {
 
   public Class<Delegator> responsibleFor() {
     return Delegator.class;
@@ -39,6 +40,11 @@ public class DelegatorAnnotationProcessor extends BasicDelegatorAnnotationProces
 
 
     specBuilderForTargetClass.addAnnotation(IsDelegator.class);
+
+    final FieldSpec delegatorFieldSpec = defineDelegatorField(typeElement);
+    specBuilderForTargetClass.addField(delegatorFieldSpec);
+
+
 
   }
 

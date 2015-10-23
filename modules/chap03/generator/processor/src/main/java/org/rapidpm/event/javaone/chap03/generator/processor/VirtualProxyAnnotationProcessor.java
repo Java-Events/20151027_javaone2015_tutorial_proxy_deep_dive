@@ -19,7 +19,7 @@ import static javax.lang.model.element.Modifier.STATIC;
  * Created by svenruppert on 22.10.15.
  */
 @AutoService(Processor.class)
-public class VirtualProxyAnnotationProcessor extends BasicDelegatorAnnotationProcessor<VirtualProxy> {
+public class VirtualProxyAnnotationProcessor extends BasicAnnotationProcessor<VirtualProxy> {
 
   public static final String FACTORY = "Factory";
   public static final String FACTORY_CREATE_INSTANCE = "createInstance";

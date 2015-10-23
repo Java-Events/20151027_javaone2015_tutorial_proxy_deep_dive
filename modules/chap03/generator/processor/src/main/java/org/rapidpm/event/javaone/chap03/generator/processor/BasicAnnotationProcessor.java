@@ -24,7 +24,7 @@ import static java.util.stream.Collectors.toList;
 /**
  * Created by svenruppert on 21.10.15.
  */
-public abstract class BasicDelegatorAnnotationProcessor<T  extends Annotation> extends AbstractProcessor {
+public abstract class BasicAnnotationProcessor<T  extends Annotation> extends AbstractProcessor {
 
   public abstract Class<T> responsibleFor();
 
@@ -66,10 +66,6 @@ public abstract class BasicDelegatorAnnotationProcessor<T  extends Annotation> e
         .forEach(typeElement -> {
           final TypeName interface2Implement = TypeName.get(typeElement.asType());
           createTypeSpecBuilderForTargetClass(typeElement, interface2Implement);
-
-          final FieldSpec delegatorFieldSpec = defineDelegatorField(typeElement);
-          typeSpecBuilderForTargetClass.addField(delegatorFieldSpec);
-
 
           addClassLevelSpecs(typeElement,roundEnv);
 
@@ -132,42 +128,12 @@ public abstract class BasicDelegatorAnnotationProcessor<T  extends Annotation> e
     return typeElement.getSimpleName().toString();
   }
 
-  private List<ParameterSpec> defineParamsForMethod(final ExecutableElement methodElement) {
-    return methodElement
-        .getParameters()
-        .stream()
-        .map(parameter -> {
-          final Name simpleName = parameter.getSimpleName();
-          final TypeMirror typeMirror = parameter.asType();
-          TypeName typeName = TypeName.get(typeMirror);
-          return ParameterSpec.builder(typeName, simpleName.toString(), Modifier.FINAL).build();
-        })
-        .collect(toList());
-  }
-
   protected FieldSpec defineDelegatorField(final TypeElement typeElement) {
     final ClassName delegatorClassName = ClassName.get(pkgName(typeElement), className(typeElement));
     return FieldSpec
         .builder(delegatorClassName, "delegator")
         .addModifiers(Modifier.PRIVATE)
-        //.initializer("new $T()", invocationHandlerClassname)
         .build();
-  }
-
-  protected String delegatorStatementWithReturn(final ExecutableElement methodElement, final String methodName2Delegate) {
-
-    return "return delegator." + delegatorMethodCall(methodElement, methodName2Delegate);
-  }
-
-  protected String delegatorMethodCall(final ExecutableElement methodElement, final String methodName2Delegate) {
-    return methodName2Delegate + "(" +
-        Joiner.on(", ")
-            .skipNulls()
-            .join(defineParamsForMethod(methodElement)
-                .stream()
-                .map(v -> v.name)
-                .collect(toList())) +
-        ")";
   }
 
   protected MethodSpec defineDelegatorMethod(final ExecutableElement methodElement, final String methodName2Delegate, final CodeBlock codeBlock) {
@@ -181,6 +147,37 @@ public abstract class BasicDelegatorAnnotationProcessor<T  extends Annotation> e
         .addCode(codeBlock)
         .build();
   }
+
+  public List<ParameterSpec> defineParamsForMethod(final ExecutableElement methodElement) {
+    return methodElement
+        .getParameters()
+        .stream()
+        .map(parameter -> {
+          final Name simpleName = parameter.getSimpleName();
+          final TypeMirror typeMirror = parameter.asType();
+          TypeName typeName = TypeName.get(typeMirror);
+          return ParameterSpec.builder(typeName, simpleName.toString(), Modifier.FINAL).build();
+        })
+        .collect(toList());
+  }
+
+
+  public String delegatorStatementWithReturn(final ExecutableElement methodElement, final String methodName2Delegate) {
+    return "return delegator." + delegatorMethodCall(methodElement, methodName2Delegate);
+  }
+
+  public String delegatorMethodCall(final ExecutableElement methodElement, final String methodName2Delegate) {
+    return methodName2Delegate + "(" +
+        Joiner.on(", ")
+            .skipNulls()
+            .join(defineParamsForMethod(methodElement)
+                .stream()
+                .map(v -> v.name)
+                .collect(toList())) +
+        ")";
+  }
+
+
 
   protected void writeDefinedClass(String pkgName, TypeSpec.Builder typeSpecBuilder) {
     final TypeSpec typeSpec = typeSpecBuilder.build();
