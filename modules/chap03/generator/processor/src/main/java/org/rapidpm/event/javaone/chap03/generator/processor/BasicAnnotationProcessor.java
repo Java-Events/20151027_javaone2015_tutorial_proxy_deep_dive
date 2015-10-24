@@ -77,7 +77,6 @@ public abstract class BasicAnnotationProcessor<T  extends Annotation> extends Ab
               .map(methodElement -> (ExecutableElement) methodElement) //cast only
               .filter(methodElement -> methodElement.getModifiers().contains(Modifier.PUBLIC))
               .forEach(methodElement -> {
-//                final List<ParameterSpec> parameterSpecs = defineParamsForMethod(methodElement);
 
                 final String methodName2Delegate = methodElement.getSimpleName().toString();
 

@@ -3,22 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
-    <artifactId>proxy-deep-dive</artifactId>
+    <artifactId>proxy-deep-dive-modules</artifactId>
     <groupId>org.rapidpm.event.javaone</groupId>
     <version>1.0-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>proxy-deep-dive-modules</artifactId>
-  <packaging>pom</packaging>
-  <modules>
-    <module>chap01</module>
-    <module>chap02</module>
-    <module>chap03</module>
-    <module>chap04</module>
-    <module>chap05</module>
-    <module>chap06</module>
-  </modules>
+  <artifactId>proxy-deep-dive-modules-chap05</artifactId>
 
 
 </project>

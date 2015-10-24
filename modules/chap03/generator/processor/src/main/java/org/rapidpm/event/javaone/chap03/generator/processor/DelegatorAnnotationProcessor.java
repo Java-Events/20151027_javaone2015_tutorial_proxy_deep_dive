@@ -38,15 +38,10 @@ public class DelegatorAnnotationProcessor extends BasicAnnotationProcessor<Deleg
     final TypeName interface2Implement = TypeName.get(typeElement.asType());
     final TypeSpec.Builder specBuilderForTargetClass = createTypeSpecBuilderForTargetClass(typeElement, interface2Implement);
 
-
     specBuilderForTargetClass.addAnnotation(IsDelegator.class);
 
     final FieldSpec delegatorFieldSpec = defineDelegatorField(typeElement);
     specBuilderForTargetClass.addField(delegatorFieldSpec);
-
-
-
   }
-
 
 }
