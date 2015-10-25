@@ -3,17 +3,17 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
-    <artifactId>proxy-deep-dive-modules</artifactId>
+    <artifactId>proxy-deep-dive-modules-chap04</artifactId>
     <groupId>org.rapidpm.event.javaone</groupId>
     <version>1.0-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>proxy-deep-dive-modules-chap04</artifactId>
+  <artifactId>proxy-deep-dive-modules-chap04-generator</artifactId>
   <packaging>pom</packaging>
   <modules>
-    <module>generator</module>
-    <module>usages</module>
+    <module>annotations</module>
+    <module>processor</module>
   </modules>
 
   <dependencyManagement>
@@ -30,5 +30,4 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
-
 </project>

@@ -10,6 +10,24 @@
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>proxy-deep-dive-modules-chap05</artifactId>
+  <packaging>pom</packaging>
+  <modules>
+    <module>generator</module>
+  </modules>
 
 
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.rapidpm.event.javaone</groupId>
+        <artifactId>proxy-deep-dive-modules-chap05-generator-annotations</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.rapidpm.event.javaone</groupId>
+        <artifactId>proxy-deep-dive-modules-chap05-generator-processor</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 </project>

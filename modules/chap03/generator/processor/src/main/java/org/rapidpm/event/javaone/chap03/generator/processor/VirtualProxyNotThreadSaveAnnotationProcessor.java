@@ -25,7 +25,7 @@ public class VirtualProxyNotThreadSaveAnnotationProcessor extends BasicAnnotatio
     final String delegateStatement = delegatorStatementWithReturn(methodElement, methodName2Delegate);
 
     ClassName implClassName = ClassName.get(
-        pkgName(methodElement.getEnclosingElement()),
+        pkgName((TypeElement) methodElement.getEnclosingElement()),
         className(methodElement.getEnclosingElement()) + "Impl");
 
     return CodeBlock.builder()
