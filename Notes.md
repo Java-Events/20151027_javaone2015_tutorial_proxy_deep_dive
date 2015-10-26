@@ -39,27 +39,31 @@ by Heinz Kabutz and the session’s presenter, takes a deep dive into this patte
 
 Beispiel wie man Parameter für die Proxies per Nested Builder realisiert
 
-## Chapter 03 - Performance
+## Chapter 03 - Performance - done
  * AnnotationProcessing
    * generated Delegator
    * generated VirtualProxy
    * generated VirtualProxy - ServiceFactory / ServiceStrategyFactory
 
-## Chapter 04a - DynamicObjectAdapter
+## Chapter 04a - DynamicObjectAdapter - done
  * orig Version
  * typesafe Version
  * generated typesafe Version
  * use it like a Mock
 
-## Chapter 04b - Static ObjectAdapter
+## Chapter 04b - Static ObjectAdapter - done
  * handwritten typesafe Version
  * generated typesafe Version
+
  * ObjectAdapter mit einem VirtualProxy als Orig
  * use it like a Mock
 
+
+ Slides ueberarbeiten
+
 ## Chapter 05 - ??
 
-## Chapter 06 -Static Virtual Proxy at runtime - Source Generated
+## Chapter 06 -Static Virtual Proxy at runtime - Source Generated - done
  * Heinz Version
  * OnExistingObject
 

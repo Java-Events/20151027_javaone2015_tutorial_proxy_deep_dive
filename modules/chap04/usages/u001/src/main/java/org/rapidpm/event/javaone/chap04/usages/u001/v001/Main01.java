@@ -1,7 +1,8 @@
-package org.rapidpm.event.javaone.chap05.usages.u001.v001;
+package org.rapidpm.event.javaone.chap04.usages.u001.v001;
 
-import org.rapidpm.event.javaone.chap05.usages.u001.Service;
-import org.rapidpm.event.javaone.chap05.usages.u001.ServiceImpl;
+
+import org.rapidpm.event.javaone.chap04.usages.u001.Service;
+import org.rapidpm.event.javaone.chap04.usages.u001.ServiceImpl;
 
 /**
  * Created by svenruppert on 24.10.15.

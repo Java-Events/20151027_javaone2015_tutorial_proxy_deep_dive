@@ -1,4 +1,8 @@
-package org.rapidpm.event.javaone.chap04.usages.u001;
+package org.rapidpm.event.javaone.chap04.usages.u001.v002;
+
+import org.rapidpm.event.javaone.chap04.usages.u001.Service;
+import org.rapidpm.event.javaone.chap04.usages.u001.ServiceImpl;
+import org.rapidpm.event.javaone.chap04.usages.u001.ServiceStaticObjectAdapter;
 
 /**
  * Created by svenruppert on 25.10.15.

@@ -90,7 +90,6 @@ public class StaticObjectAdapterAnnotationProcessor extends BasicObjectAdapterAn
 
     //add Adapter fields
 
-
     //add Adapter addMethods
     //add delegator method
 
