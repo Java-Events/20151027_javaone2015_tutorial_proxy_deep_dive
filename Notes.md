@@ -24,8 +24,8 @@ by Heinz Kabutz and the session’s presenter, takes a deep dive into this patte
   * SecurityProxy
   * RemoteProxy
   * VirtualProxy
-    * ServiceFactory / ServiceStrategyFactory reduzieren auf eine generische Version
-    * MethodScooped / einbauen fehlt noch bei jedem Method Invoke eine neue Instanz
+    * ServiceFactory / ServiceStrategyFactory reduced and generic version
+    * MethodScooped
 
 * Combining Proxies - hand written / hard wired
 
@@ -53,7 +53,7 @@ by Heinz Kabutz and the session’s presenter, takes a deep dive into this patte
  * handwritten typesafe Version
  * generated typesafe Version
 
- * ObjectAdapter mit einem VirtualProxy als Orig
+ * ObjectAdapter with VirtualProxy as delegator
  * use it like a Mock
 
 ## Chapter 05 - ??
@@ -62,4 +62,3 @@ by Heinz Kabutz and the session’s presenter, takes a deep dive into this patte
  * Heinz Version
  * OnExistingObject
 
-* AnnotationProcessing for Nested - Builder - per Annotation @NestedBuilder
