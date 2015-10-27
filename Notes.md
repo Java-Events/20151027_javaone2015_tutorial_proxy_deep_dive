@@ -16,7 +16,9 @@ maybe with another language such as Kotlin?
 The session, based on the German book Dynamic Proxies,
 by Heinz Kabutz and the session’s presenter, takes a deep dive into this pattern group.
 
-
+See slides at :
+* slideshare [http://de.slideshare.net/svenruppert/proxy-deepdive-javaone20151027001](http://de.slideshare.net/svenruppert/proxy-deepdive-javaone20151027001)
+* youtube: [https://youtu.be/FoKSX2WmT4g](https://youtu.be/FoKSX2WmT4g)
 
 ## Chapter 01
 * Adapter v Delegator v Proxy
